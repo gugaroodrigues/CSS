@@ -21,7 +21,7 @@ public class Conexao {
     private static final String  CLASS = "com.mysql.jdbc.Driver";
     private static Connection conexao;
         
-    public static Connection obterconexao(){
+    public static Connection obterConexao(){
         try{
             Class.forName(CLASS);
             conexao = DriverManager.getConnection(HOST, USER, PASSWORD);
