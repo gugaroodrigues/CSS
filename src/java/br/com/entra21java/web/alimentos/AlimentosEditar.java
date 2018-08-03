@@ -5,6 +5,8 @@
  */
 package br.com.entra21java.web.alimentos;
 
+import br.com.entra21java.bean.AlimentoBean;
+import br.com.entra21java.dao.AlimentoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,6 +25,9 @@ public class AlimentosEditar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        int id =Integer.parseInt(req.getParameter("id"));
+        AlimentoBean alimento = new AlimentoDao().obterPeloId(id);
+        
         PrintWriter out = resp.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
