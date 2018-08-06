@@ -8,7 +8,6 @@ package br.com.entra21java.web.alimentos;
 import br.com.entra21java.bean.AlimentoBean;
 import br.com.entra21java.dao.AlimentoDao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,39 +16,24 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Gus
+ * @author Alunos
  */
-
-@WebServlet(urlPatterns = "/alimentos/store")
-public class AlimentosStore extends HttpServlet{
+@WebServlet("/alimentos/update")
+public class AlimentoUpdate extends HttpServlet{
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-    /*}
-    
-    
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-            throws ServletException, IOException {*/
-        
         AlimentoBean alimento = new AlimentoBean();
         alimento.setNome(req.getParameter("nome"));
-        alimento.setQuantidade(Byte.parseByte(req.getParameter("quantidade")));
-        alimento.setPreco(Double.parseDouble(req.getParameter("preco")));
         alimento.setDescricao(req.getParameter("descricao"));
-     
-        int codigo = new AlimentoDao().adicionar(alimento);       
+        alimento.setId(Integer.parseInt(req.getParameter("id")));
+        alimento.setQuantidade(Byte.parseByte(req.getParameter("quantidade")));;
+        alimento.setPreco(Double.parseDouble(req.getParameter("preco")));
+        boolean alterou = new AlimentoDao().alterar(alimento);
         
-        /*PrintWriter out = resp.getWriter();
-        out.println("cadatrado com sucesso");*/
-        if(codigo > 0){
-            resp.sendRedirect("/WebExemplo02/alimentos");
-            
-        }
+        
     }
-    
     
     
 }
