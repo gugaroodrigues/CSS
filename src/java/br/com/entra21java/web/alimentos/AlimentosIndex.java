@@ -36,6 +36,7 @@ public class AlimentosIndex extends HttpServlet {
         out.println("<head>");
         out.println("<title>Alimentos - Lista</title>");
         out.println("<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.css'/>");
+        out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>");
         out.println("</head>");
         out.println("<body>");
 
@@ -50,7 +51,7 @@ public class AlimentosIndex extends HttpServlet {
         
         out.println("<div class='row'>");
         out.println("<div class='col-md-2 offset-md-10'>");
-        out.println("<a href='/WebExemplo02/alimentos/cadastro' class='btn btn-primary float-right'>Novo Alimento</a>");
+        out.println("<a href='/WebExemplo02/alimentos/cadastro' class='btn btn-primary float-right'><i class='fa fa-user'></i> Novo Alimento</a>");
 
         out.println("</div>");
         out.println("</div>");
@@ -64,8 +65,8 @@ public class AlimentosIndex extends HttpServlet {
     }
 
     private void gerarTabela(List<AlimentoBean> alimentos) {
-        out.print("<div class='row mt-3'>");
-        out.print("<div class='col-md-12'>");
+        out.print("<div class='row mtx-3 justify-content-md-center'>");
+        out.print("<div class='col-md-8'>");
         
         out.println("<table class='table table-striped table-hover' >");
         out.println("<thead>");
@@ -86,8 +87,8 @@ public class AlimentosIndex extends HttpServlet {
             out.println("<td>" + alimento.getPreco() + "</td>");
             out.println("<td>");
 
-            out.println("<a href='/WebExemplo02/alimentos/editar?id=" + alimento.getId() + "'class='botao-editar'>Editar<a/>");
-            out.println("<a href='/WebExemplo02/alimentos/excluir?id=" + alimento.getId() + "'class='botao-excluir'>Excluir<a/a>");
+            out.println("<a href='/WebExemplo02/alimentos/editar?id=" + alimento.getId() + "'class='btn btn-outline-success'><i class='fa fa-edit'></i>Editar<a/>");
+            out.println("<a href='/WebExemplo02/alimentos/excluir?id=" + alimento.getId() + "'class='btn btn-outline-danger'><i class='fa fa-trash'></i>Excluir<a/a>");
 
             out.println("</td>");
             out.println("</tr>");
